@@ -1,5 +1,5 @@
 
-这个是fobnn的Markdown语法测试文档
+
 ==
 ###标题测试
 
@@ -56,7 +56,7 @@ H2
 
 ****
 ###强调测试
-`_FOBNN_` ：_FOBNN_
+
 `__FOBNN__` : __FOBNN__
 `*fobnn*` : *fobnn*
 `**fobnn**` : **fobnn**
@@ -97,7 +97,49 @@ int main()
 >`*fobnn*` : *fobnn*
 >`**fobnn**` : **fobnn**
 
+***
+###GFM测试
 
+####表格
+| *表头1* | 表头2   |
+| :---: | ----- |
+|  单元1  | `单元2` |
 
+####代码高亮
 
+```go
+package main
 
+import "fmt"
+
+func main(){
+  fmt.Println('hello fobnn')
+}
+```
+
+```c++
+#include<iostream>
+class fobnn
+{
+  public:
+    fobnn(){};
+    friend ostream& operator<<(const ostream& os)
+    {
+      os << "hello fobnn"<<std::endl;
+      return os;
+    }
+};
+```
+####删除线(Strikethrough)
+~~我宣布！这句话被否决了！~~
+
+####emoji
+​:joy:​
+
+####前方高能！！任务表，TODOLIST？
+
+2016年目标如下：
+-  [x] 学习分布式系统原理
+-  [ ] 每天记3个单词​:joy:​
+-  [ ] Golang掌握
+-  [x] ​
