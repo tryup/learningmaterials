@@ -116,7 +116,8 @@ MD中的标签元素分为下面三大类
 
 目前生活工作基本是linux desktop和osx。自己使用的是emacs markdown-mode 外挂markdown可以perview。 近期也开始尝试bear,mou,macdown等工具，等体验之后再分享。
 
-关于工具的讨论可以查看[知乎讨论](https://www.zhihu.com/question/22700184)。
+关于工具的讨论可以查看[知乎讨论](https://www.zhihu.com/question/22700184)
+[Mac上适合码农用的Markdown编辑器](https://www.zhihu.com/question/28886671)。
 
 ####5.最后
 
