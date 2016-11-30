@@ -56,11 +56,11 @@ list函数是创建一个列表： (1 5)
 
 5. 这些函数做了什么？
 ```lisp
-   (a) (defun enigma (x)
+(a) (defun enigma (x)
       (and (not (null x))
            (or (null (car x))
                (enigma (cdr x)))))
-
+;判断列表是否是空表，或者列表中是否有空元素。
 (b) (defun mystery (x y)
       (if (null y)
           nil
@@ -68,22 +68,29 @@ list函数是创建一个列表： (1 5)
               0
               (let ((z (mystery x (cdr y))))
                 (and z (+ z 1))))))
+;lower_bound功能，查找x在y中第一次出现的位置。
 ```
+
 6. 下列表达式， x 该是什么，才会得到相同的结果？
-   ​```lisp
-   (a) > (car (x (cdr '(a (b c) d))))
+```lisp
+(a) > (car (x (cdr '(a (b c) d))))
     B
-   (b) > (x 13 (/ 1 0))
+    ;step1 ((b c) d)
+    ;step2 我们要取出列表(b c),才能 (car '(b c)) 成功故 x 为 car
+(b) > (x 13 (/ 1 0))
     13
-   (c) > (x #'list 1 nil)
+    ; 1/0会产生算数错误，故不能让代码执行到这里，使用x 为or 表达式13的值为13不是nil故成立。
+(c) > (x #'list 1 nil)
     (1)
+    ;apply
 ```
 7. 只使用本章所介绍的操作符，定义一个函数，它接受一个列表作为实参，如果有一个元素是列表时，就返回真。
 8. 给出函数的迭代与递归版本：
    接受一个正整数，并打印出数字数量的点。
    接受一个列表，并返回 a 在列表里所出现的次数。
 9. 一位朋友想写一个函数，返回列表里所有非 nil 元素的和。他写了此函数的两个版本，但两个都不能工作。请解释每一个的错误在哪里，并给出正确的版本。
-​```lisp
+
+```lisp
 (a) (defun summit (lst)
       (remove nil lst)
       (apply #'+ lst))
