@@ -23,14 +23,27 @@ list函数是创建一个列表： (1 5)
 
 ```lisp
 (cons 'a '(b c))
-(cons 'a (cons 'b '(c)))  #如果是(cons 'a cons( 'b 'c))是什么结果？需要了解cons函数的定义
+(cons 'a (cons 'b '(c)))  ;如果是(cons 'a cons( 'b 'c))是什么结果？需要了解cons函数的定义
 (cons 'a (cons 'b (cons 'c nil)))
 ```
 
 3. 使用 car 与 cdr 来定义一个函数，返回一个列表的第四个元素。
-
+```lisp
+ ;car返回列表的第一个元素，cdr返回列表除第一个元素之外的元素。
+ (defun get4th(ls)
+    (if (listp ls)
+      (car( cdr (cdr (cdr ls))))
+    )
+ )
+ ;如果返回列表中的第N个元素怎么做？
+ (defun getNth(ls n)
+   (if (listp ls)
+       (if (eql n 1)
+	   (car ls)
+          (getNth (cdr ls) (- n 1)))
+  ))
+```
 4. 定义一个函数，接受两个实参，返回两者当中较大的那个。
-
 5. 这些函数做了什么？
 ```lisp
 (a) (defun enigma (x)
