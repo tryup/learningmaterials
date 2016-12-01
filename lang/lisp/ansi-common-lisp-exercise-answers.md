@@ -101,6 +101,21 @@ list函数是创建一个列表： (1 5)
   )
 ```
    接受一个列表，并返回 a 在列表里所出现的次数。
+
+```lisp
+(defun counta(l)
+  (do ((x l (cdr x))(c 0 (+ c (if (eql (car x) 'A ) 1 0))))
+      ((null x) c)
+    )
+  )
+  
+(defun counta(l)
+  (if (null l) 0
+      (+  (if (eql (car l) 'A) 1 0) (counta (cdr l)))
+  )
+)
+```
+
 9. 一位朋友想写一个函数，返回列表里所有非 nil 元素的和。他写了此函数的两个版本，但两个都不能工作。请解释每一个的错误在哪里，并给出正确的版本。
 
 ```lisp
