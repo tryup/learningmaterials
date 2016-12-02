@@ -128,12 +128,25 @@ list函数是创建一个列表： (1 5)
 
 ```lisp
 (a) (defun summit (lst)
-      (remove nil lst)
+      (remove nil lst)   ;lisp表达式结果返回, (remove nil lst)之后lst并没有改变。
       (apply #'+ lst))
+;正确版本
+(defun summit (lst)
+  (apply #' + (remove nil lst)))
 
 (b) (defun summit (lst)
-      (let ((x (car lst)))
+      (let ((x (car lst)));lst遍历到最后为nil car nil错误
         (if (null x)
             (summit (cdr lst))
-            (+ x (summit (cdr lst))))))
+            (+ x (summit (cdr lst))))));如果列表全是nil错误
+;正确版本
+(defun summit(lst)
+  (if (not (null lst))
+      (let ((x (car lst)))
+           (if (null x)
+               (summit (car lst))
+               (+ x (summit (car lst)))))
+        0;nil返回0
+      )
+  )
 ```
